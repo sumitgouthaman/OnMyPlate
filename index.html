@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todo">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>On My Plate</title>
+    <link rel="shortcut icon" href="images/icon-64.png" type="image/x-icon" />
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom css -->
+    <link href="css/onmyplate.css" rel="stylesheet">
+</head>
+
+<body ng-controller="todoController">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2>{{appName}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="newTodoText" placeholder="Add someting to your plate...">
+                    <a class="btn btn-primary" ng-click="addNewTodo()">Add</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <p ng-repeat="todo in todos track by $index">{{todo.text}}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <!-- Angular -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-touch.min.js"></script>
+    <!-- App Logic -->
+    <script src="js/todo.js"></script>
+    <!-- Bootstrap -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
