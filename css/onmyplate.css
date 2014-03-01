@@ -2,3 +2,6 @@ body {
     min-width: 357px;
     overflow-x: hidden;
 }
+.hidden-at-load{
+    display: none;
+}

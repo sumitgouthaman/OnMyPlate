@@ -23,14 +23,25 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="form-group">
-                    <input type="text" class="form-control" ng-model="newTodoText" placeholder="Add someting to your plate...">
-                    <a class="btn btn-primary" ng-click="addNewTodo()">Add</a>
+                    <input type="text" class="form-control" ng-model="newTodoText" ng-keydown="onNewTodoKeyDown($event)" placeholder="Add stuff to your plate...">
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <p ng-repeat="todo in todos track by $index">{{todo.text}}</p>
+                <div class="list-group">
+                    <a ng-repeat="todo in todos track by $index" ng-click="showOptions($index)" class="list-group-item">
+                        <div>{{todo.text}}</div>
+                        <div class="hidden-at-load" id="options{{$index}}">
+                            <br/>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-danger" ng-click="removeItem($index)">Off my plate!</button>
+                                <button type="button" class="btn btn-default">Edit</button>
+                                <button type="button" class="btn btn-default">Prioritize</button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -44,6 +55,8 @@
     <script src="js/todo.js"></script>
     <!-- Bootstrap -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- Other page related functions -->
+    <script src="js/otherFunctions.js"></script>
 </body>
 
 </html>
