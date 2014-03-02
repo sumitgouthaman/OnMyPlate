@@ -35,6 +35,11 @@ todo.controller('todoController', ['$scope',
             });
         }
 
+        $scope.prioritizeItem = function (index) {
+            var item = $scope.todos.splice(index, 1)[0];
+            $scope.todos.unshift(item);
+        }
+
         $scope.showOptions = function (index) {
             showOptions(index);
         }

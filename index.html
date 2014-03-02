@@ -22,22 +22,30 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <div class="form-group">
+                <div class="input-group">
                     <input type="text" class="form-control" ng-model="newTodoText" ng-keydown="onNewTodoKeyDown($event)" placeholder="Add stuff to your plate...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </button>
+                    </span>
                 </div>
+                <br/>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
                 <div class="list-group">
                     <a ng-repeat="todo in todos track by $index" ng-click="showOptions($index)" class="list-group-item">
-                        <div>{{todo.text}}</div>
+                        <div>
+                            <strong>{{todo.text}}</strong>
+                        </div>
                         <div class="hidden-at-load" id="options{{$index}}">
                             <br/>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-danger" ng-click="removeItem($index)">Off my plate!</button>
                                 <button type="button" class="btn btn-default">Edit</button>
-                                <button type="button" class="btn btn-default">Prioritize</button>
+                                <button type="button" class="btn btn-default" ng-click="prioritizeItem($index)">Prioritize</button>
                             </div>
                         </div>
                     </a>
