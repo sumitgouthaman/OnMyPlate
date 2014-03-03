@@ -4,6 +4,7 @@ todo.controller('todoController', ['$scope',
 
         $scope.appName = "On My Plate";
         $scope.newTodoText = "";
+        $scope.showMoreOptions = false;
 
         $scope.todos = [];
 
@@ -56,6 +57,10 @@ todo.controller('todoController', ['$scope',
 
         loadTodos = function (todos) {
             $scope.todos = todos;
+        }
+
+        $scope.toggleOptions = function () {
+            $scope.showMoreOptions = !$scope.showMoreOptions;
         }
 
 }]);

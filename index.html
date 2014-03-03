@@ -25,12 +25,33 @@
                 <div class="input-group">
                     <input type="text" class="form-control" ng-model="newTodoText" ng-keydown="onNewTodoKeyDown($event)" placeholder="Add stuff to your plate...">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">
+                        <button class="btn btn-default" type="button" ng-click="toggleOptions()">
                             <span class="glyphicon glyphicon-chevron-down"></span>
                         </button>
                     </span>
                 </div>
                 <br/>
+            </div>
+            <div class="col-xs-12" ng-show="showMoreOptions">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="duedate" class="col-xs-4 control-label">Due Date</label>
+                        <div class="col-xs-8">
+                            <input type="date" class="form-control" id="duedate" placeholder="Due Date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="duetime" class="col-xs-4 control-label">Time</label>
+                        <div class="col-xs-8">
+                            <input type="time" class="form-control" id="duetime" placeholder="Time">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-4 col-xs-8">
+                            <button class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="row">
