@@ -9,10 +9,25 @@ todo.controller('todoController', ['$scope',
         $scope.todos = [];
 
         $scope.addNewTodo = function () {
-            $scope.todos.unshift({
+            if ($scope.newTodoText == "") {
+                return;
+            }
+            var newtodo = {
                 "text": $scope.newTodoText
-            })
+            };
+            if ($scope.showMoreOptions) {
+                if ($scope.newTodoDueDate) {
+                    newtodo.duedate = $scope.newTodoDueDate;
+                }
+                if ($scope.newTodoDueTime) {
+                    newtodo.duetime = $scope.newTodoDueTime;
+                }
+            }
+            $scope.todos.unshift(newtodo);
             $scope.newTodoText = "";
+            $scope.newTodoDueDate = null;
+            $scope.newTodoDueTime = null;
+            $scope.showMoreOptions = false;
             chrome.storage.sync.set({
                 "todos": $scope.todos
             }, function () {

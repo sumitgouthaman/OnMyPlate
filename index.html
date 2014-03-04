@@ -37,18 +37,18 @@
                     <div class="form-group">
                         <label for="duedate" class="col-xs-4 control-label">Due Date</label>
                         <div class="col-xs-8">
-                            <input type="date" class="form-control" id="duedate" placeholder="Due Date">
+                            <input type="date" ng-model="newTodoDueDate" class="form-control" id="duedate" placeholder="Due Date">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="duetime" class="col-xs-4 control-label">Time</label>
                         <div class="col-xs-8">
-                            <input type="time" class="form-control" id="duetime" placeholder="Time">
+                            <input type="time"ng-model="newTodoDueTime"  class="form-control" id="duetime" placeholder="Time">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-offset-4 col-xs-8">
-                            <button class="btn btn-primary">Save</button>
+                            <button class="btn btn-primary" ng-click="addNewTodo()">Save</button>
                         </div>
                     </div>
                 </form>
@@ -59,7 +59,9 @@
                 <div class="list-group">
                     <a ng-repeat="todo in todos track by $index" ng-click="showOptions($index)" class="list-group-item">
                         <div>
-                            <strong>{{todo.text}}</strong>
+                            <strong>{{todo.text}}</strong><br/>
+                            <small ng-show="todo.duedate"><em>Due on {{todo.duedate | date:'dd-MM-yyyy'}}</em></small>
+                            <small ng-show="todo.duetime"><em> at {{todo.duetime}}</em></small>
                         </div>
                         <div class="hidden-at-load" id="options{{$index}}">
                             <br/>
