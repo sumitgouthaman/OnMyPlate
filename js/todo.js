@@ -1,4 +1,4 @@
-var todo = angular.module('todo', ['ngTouch']);
+var todo = angular.module('todo', ['todofilters', 'ngTouch']);
 todo.controller('todoController', ['$scope',
     function ($scope) {
 
