@@ -35,6 +35,15 @@ todo.controller('todoController', ['$scope',
             });
         }
 
+        $scope.saveEditTodo = function (index) {
+            chrome.storage.sync.set({
+                "todos": $scope.todos
+            }, function () {
+                console.log("Plate edited");
+            });
+            showEditPanel(index); //Toggles it. So it gets hidden!
+        }
+
         $scope.onNewTodoKeyDown = function ($event) {
             var code = ($event.keyCode ? $event.keyCode : $event.which);
             if (code == 13) { //Enter keycode
@@ -58,6 +67,10 @@ todo.controller('todoController', ['$scope',
 
         $scope.showOptions = function (index) {
             showOptions(index);
+        }
+
+        $scope.showEditPanel = function (index) {
+            showEditPanel(index);
         }
 
         $scope.loadData = function () {

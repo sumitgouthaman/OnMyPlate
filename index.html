@@ -73,9 +73,37 @@
                             <br/>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-danger" ng-click="removeItem($index)">Off my plate!</button>
-                                <button type="button" class="btn btn-default">Edit</button>
+                                <button type="button" class="btn btn-default" ng-click="showEditPanel($index)">Edit</button>
                                 <button type="button" class="btn btn-default" ng-click="prioritizeItem($index)">Prioritize</button>
                             </div>
+                        </div>
+                        <div class="hidden-at-load" id="editpanel{{$index}}">
+                            <hr/>
+                            <strong>Edit Todo:</strong>
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <input type="text" class="form-control" ng-model="todo.text" placeholder="Add stuff to your plate...">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-4 control-label">Due Date</label>
+                                    <div class="col-xs-8">
+                                        <input type="date" ng-model="todo.duedate" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-4 control-label">Time</label>
+                                    <div class="col-xs-8">
+                                        <input type="time" ng-model="todo.duetime" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-offset-4 col-xs-8">
+                                        <button class="btn btn-primary" ng-click="saveEditTodo($index)">Save</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </a>
                 </div>
